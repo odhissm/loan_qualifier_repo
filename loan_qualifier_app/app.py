@@ -12,6 +12,7 @@ import questionary
 from pathlib import Path
 
 from qualifier.utils.fileio import load_csv
+from qualifier.utils.fileio import save_csv
 
 from qualifier.utils.calculators import (
     calculate_monthly_debt_ratio,
@@ -111,6 +112,49 @@ def save_qualifying_loans(qualifying_loans):
     # @TODO: Complete the usability dialog for savings the CSV Files.
     # YOUR CODE HERE!
 
+    #save_qualifying_loan_list = questionary.text("Would you like to save the list of qualifying loans to a CSV file? Yes/No").ask()
+    
+    # initialize the path variable for the file
+    csvpath = ""
+
+    #prompt user to enter the path to where they would want the list of qualifying loan list written to
+    csvpath = questionary.text("Please enter the path to where you would like the a qualifying_loan_list, for example './qualifying_loan_list.csv'):").ask()
+    csvpath = Path(csvpath)
+
+    #call save_csv function to write out the file
+    save_csv(csvpath, qualifying_loans, header=["Lender","Max Loan Amount","Max LTV","Max DTI","Min Credit Score","Interest Rate"])
+
+def prompt_to_save(qualifying_loans):
+    """Prompt the user if they want to save the qualifying loan list
+
+    Args:
+        qualifying_loans (list of lists): The qualifying bank loans.
+
+    Returns:
+        Returns boleen True/False.
+    """
+    save_response = ""
+
+    #if qualifying loans exist then promt user if they want to save the list in a csv file
+    if qualifying_loans:  
+        save_response = questionary.text("Would you like to save the list of qualifying loans to a CSV file? Y/N").ask()
+
+        # Prompt user of try again if they type input not in the list ("Y", "y", "N", "n")
+        while save_response not in ("Y", "y", "N", "n"):
+            save_response = questionary.text("You can only enter 'Y' , 'y' , 'N' or 'n'. Please try again").ask()
+
+    # else if there are no qualifying loans found then inform the user and exit the program
+    else:
+        print("Sorry the are no qualifying loans found based on these inputs. The program will exit now")
+        exit 
+
+    #if user wants to save the qualifying loans to csv then return boolean True and if not return False
+    if (save_response == "Y") or (save_response == "y"):
+        return True
+
+    else:
+        return False
+
 
 def run():
     """The main function for running the script."""
@@ -126,9 +170,14 @@ def run():
         bank_data, credit_score, debt, income, loan_amount, home_value
     )
 
-    # Save qualifying loans
-    save_qualifying_loans(qualifying_loans)
+    # Prompt user if they want to save the list of qualifying loans to csv file
+    save_response = prompt_to_save(qualifying_loans)
 
+
+    # Save qualifying loans
+    if save_response:
+        save_qualifying_loans(qualifying_loans)
+    
 
 if __name__ == "__main__":
     fire.Fire(run)

@@ -1,0 +1,50 @@
+  901  python app.py 
+  902  python app.py 
+  903  python app.py 
+  904  python app.py 
+  905  python app.py 
+  906  python app.py 
+  907  python app.py 
+  908  python app.py 
+  909  python app.py 
+  910  python app.py 
+  911  python app.py 
+  912  python app.py 
+  913  python app.py 
+  914  python app.py 
+  915  python app.py 
+  916  python app.py 
+  917  python app.py 
+  918  python app.py 
+  919  python app.py 
+  920  python app.py 
+  921  python app.py 
+  922  python app.py 
+  923  python app.py 
+  924  history 50 > terminal_history.txt
+  925  conda deactivate
+  926  conda activate dev
+  927  python app.py 
+  928  python app.py 
+  929  python app.py 
+  930  python app.py 
+  931  python app.py 
+  932  python app.py 
+  933  pwd
+  934  python app.py 
+  935  python app.py 
+  936  python app.py 
+  937  pwd
+  938  ls -l
+  939  cd ..
+  940  ls -l
+  941  git status
+  942  cd ..
+  943    git status
+  944  ls -l
+  945  cd loan_qualifier_repo/
+  946  git status
+  947  git add loan_qualifier_app/app.py loan_qualifier_app/qualifier/utils/fileio.py 
+  948  git status
+  949  ls -l
+  950  history 50 > terminal_history.txt

@@ -1,7 +1,7 @@
 # loan_qualifier_repo
 This is a repository for loan qualifier application
 
-# Project Title
+# Loan Qualifier Application: new save csv feature option
 
 Loan Qualifier Application is a fintech lending software used to match customers with loans that they qualify for from differnt institutions. 
 
@@ -26,7 +26,9 @@ Before running the application first install the following dependencies.
   pip install fire
   pip install questionary
 ```
+run the commands as shown on the terminal in the image below.
 
+![loan qualifier CLI](Images/loan-qualifier-cmd.jpg)
 ---
 
 ## Usage
