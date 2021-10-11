@@ -28,7 +28,7 @@ Before running the application first install the following dependencies.
 ```
 run the commands as shown on the terminal in the image below.
 
-![loan qualifier CLI](Images/loan-qualifier-cmd.jpg)
+
 ---
 
 ## Usage
@@ -38,6 +38,8 @@ To use the loan qualifier application simply clone the repository and run the **
 ```python
 python app.py 
 ```
+
+![loan qualifier CLI](Images/loan-qualifier-cmd.jpg)
 
 ---
 
