@@ -111,9 +111,7 @@ def save_qualifying_loans(qualifying_loans):
     """
     # @TODO: Complete the usability dialog for savings the CSV Files.
     # YOUR CODE HERE!
-
-    #save_qualifying_loan_list = questionary.text("Would you like to save the list of qualifying loans to a CSV file? Yes/No").ask()
-    
+    #
     # initialize the path variable for the file
     csvpath = ""
 
@@ -133,13 +131,14 @@ def prompt_to_save(qualifying_loans):
     Returns:
         Returns boleen True/False.
     """
+    # initialize save_response with and empty string
     save_response = ""
 
     #if qualifying loans exist then promt user if they want to save the list in a csv file
     if qualifying_loans:  
         save_response = questionary.text("Would you like to save the list of qualifying loans to a CSV file? Y/N").ask()
 
-        # Prompt user of try again if they type input not in the list ("Y", "y", "N", "n")
+        # Prompt user of try again if they type input that is not in the list ("Y", "y", "N", "n")
         while save_response not in ("Y", "y", "N", "n"):
             save_response = questionary.text("You can only enter 'Y' , 'y' , 'N' or 'n'. Please try again").ask()
 
